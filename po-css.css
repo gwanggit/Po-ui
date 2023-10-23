@@ -1,0 +1,312 @@
+@media (min-width: 1251px){
+#lnavmenu{
+display: none;
+}
+[data-theme='dark'] header nav > ul > li > ul > li {
+background-color: #fff!important;}
+#scrollTopBtn {
+display: none;
+position: fixed;
+bottom: 1%;
+right: 2%;
+z-index: 99;
+border: none;
+outline: none;
+background-color: red;
+color: white;
+cursor: pointer;
+padding: 15px;
+border-radius: 10px;
+width: 50px;
+max-width: 50px;
+}
+
+#scrollTopBtn:hover {
+background-color: #555;
+}
+}
+/*다크모드토글 버튼*/
+.switch {
+position: relative;
+display: inline-block;
+width: 40px;
+height: 24px;
+}
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgb(0, 212, 74);
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: #ffffff;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #272626;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #333;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(16px);
+-ms-transform: translateX(16px);
+transform: translateX(16px);
+
+}
+
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+body[data-theme="dark"],
+body[data-theme="light"]{
+  transition: 0.4s ease;
+}
+
+#scrollTopBtn {
+display: none;
+position: fixed;
+bottom: 54px;
+right: 30px;
+z-index: 99;
+border: none;
+outline: none;
+background-color: #5c5c5c;
+color: white;
+cursor: pointer;
+padding: 15px;
+border-radius: 10px;
+}
+
+#scrollTopBtn:hover {
+background-color: #555;
+}
+/*채팅창 배지 크기*/
+#gradeBadge {
+width: 24px!important;
+height: 24px!important;
+}
+
+.mobile-nav {
+display: none;
+}
+
+/* 화면 가로 길이가 1250픽셀 이하일 때 보여줄 스타일 */
+@media screen and (max-width: 1250px) {
+#toggleBtn{
+display: none!important;
+}
+#nav{
+transition:0.5s ease-in-out;
+}
+header #nav .navBackground{
+display: none;
+}
+header #nav{
+display: flex!important;
+left: -100%!important;
+}
+header #nav.active{
+left: 0!important;
+}
+
+.mobile-nav {
+    display: flex; /* flexbox를 사용하여 아이템들이 빈틈없이 출력되도록 함 */
+    justify-content: space-between; /* 각 아이템이 균등한 공간을 차지하도록 함 */
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1000;
+}
+
+.nav-item {
+    flex-grow: 1; /* flex 아이템이 사용 가능한 여분의 공간을 채우도록 함 */
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    display: block; /* 링크가 전체 아이템 영역을 차지하도록 함 */
+}
+
+#scroll-to-top {
+    cursor: pointer;
+}
+aside .userInfo {
+display: flex!important;
+    position: fixed;
+    bottom: -100%; /* 초기 상태에서는 화면 밖에 위치하도록 설정 */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    transition: bottom 0.5s ease-in-out; /* 부드러운 전환 효과 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    /* 추가 스타일 설정 */
+}
+
+aside .userInfo.active {
+    bottom: 45px;
+}
+#chatApp.active{
+bottom: 49px!important;
+position: fixed;
+}
+[data-theme="dark"] aside .userInfo {
+  background-color: #4c4c4c!important;
+}
+
+
+header #nav .mypage {
+display:none!important;
+}
+#chatApp {
+position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+width: 100%;
+bottom: -100%;
+max-height: 700px;
+height: 530px;
+min-height: 60px;
+overflow: hidden;
+transition: transform 0.5s ease, bottom 0.3s ease;
+z-index: 1;
+}
+[data-theme="dark"] #chatApp {
+background-color: #4c4c4c!important;
+}
+.resize-handle {
+height: 10px; /* 또는 원하는 높이 */
+background: #666; /* 핸들의 색을 구분하기 위한 배경색 */
+cursor: ns-resize; /* 커서를 리사이즈 커서로 변경 */
+position: absolute;
+top: 0; /* 상단에 위치시킴 */
+width: 100%; /* 핸들의 너비를 100%로 설정하여 컨테이너 너비와 동일하게 만듦 */
+z-index: 9999; /* 다른 요소 위에 핸들이 나타나도록 함 */
+}
+#chatApp .container {
+position: fixed;
+bottom: 0;
+max-height: 690px;
+}
+#scrollTopBtn {
+display: none!important;
+}
+
+.uinfo {
+display: flex; /* Flexbox를 사용하여 항목을 수평으로 정렬합니다 */
+justify-content: space-between; /* 항목들을 컨테이너의 양쪽 끝에 정렬합니다 */
+align-items: flex-start; /* 항목들을 컨테이너의 상단에 정렬합니다 */
+border: 1px solid #ccc; /* 경계선을 추가합니다 */
+align-items: stretch;
+}
+.line {
+background-color: #ccc;
+width: 1px; /* 선의 두께 */
+height: 100%;
+}
+.left-section {
+display: flex; /* Flexbox를 사용하여 항목을 수직으로 정렬합니다 */
+flex-direction: column; /* 항목들을 수직으로 정렬합니다 */
+width: calc(65% - 10px);
+margin-right: 10px; /* 오른쪽 마진을 추가하여 .pinfo와의 간격을 만듭니다 */
+border-left: none;
+padding-top: 10px;
+padding-left: 10px;
+}
+
+.info-container {
+display: flex; /* Flexbox를 사용하여 항목을 수평으로 정렬합니다 */
+justify-content: space-between; /* 항목들을 컨테이너의 양쪽 끝에 정렬합니다 */
+align-items: center; /* 항목들을 컨테이너의 중앙에 정렬합니다 */
+margin-bottom: 10px; /* .expbar와의 간격을 위해 하단 마진을 추가합니다 */
+}
+.newnick{
+font-size: medium;
+font-weight: bold;
+}
+.newlevel{
+font-size: large;
+font-weight: bold;
+}
+
+.pinfo {
+width: 35%; /* 너비를 50%로 설정합니다 */
+text-align: center;
+border-left: 1px solid #ccc; /* Adds a border to the left side of each child */
+padding: 10px;
+}
+.info-container #gradeBadge {
+width: 40px!important;
+height: 40px!important;
+}
+#quickmenu {
+border: 1px solid #ccc; /* 사각형 테두리 */
+padding: 10px; /* 내부 여백 */
+}
+
+#quickmenu ul {
+list-style-type: none; /* 기본 목록 스타일 제거 */
+padding: 0; /* 기본 패딩 제거 */
+margin: 0; /* 기본 마진 제거 */
+display: flex; /* Flexbox 레이아웃 사용 */
+justify-content: space-around; /* 요소들 사이에 동일한 간격 배치 */
+flex-wrap: wrap; /* 요소가 너무 많을 경우 다음 줄로 이동 */
+}
+
+#quickmenu ul li {
+flex-basis: 25%; /* 각 항목이 차지하는 기본 공간 설정 */
+box-sizing: border-box; /* 패딩과 테두리가 너비에 포함되도록 */
+text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+#quickmenu ul li a {
+display: block; /* a 태그를 블록 요소로 변경 */
+padding: 10px; /* 클릭 영역 확대를 위한 패딩 */
+text-decoration: none; /* 기본 텍스트 데코레이션 제거 */
+color: black; /* 링크 텍스트 색상 설정 */
+}
+
+#quickmenu ul li a:hover {
+background-color: #f5f5f5; /* 마우스 오버 시 배경색 변경 */
+}
+.newlevel {
+display: flex; /* establishes a flex context for children */
+align-items: center; /* centers children vertically */
+justify-content: space-between; /* align children with space between them */
+}
+
+}
+
+/*모바일 끝*/
