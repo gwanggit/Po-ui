@@ -153,7 +153,7 @@ function getPanelForNavItem(item) {
       case "내 정보":
           var userInfoPanel = document.querySelector("aside .userInfo");
           if (!userInfoPanel) {
-              window.location.href = "https://psdtv1.com/login";
+            var userInfoPanel = document.querySelector("section .userContainer");
           }
           return userInfoPanel;
       case "메뉴":
