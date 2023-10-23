@@ -1,5 +1,3 @@
-
-
   // 다크모드 토글 스위치 로직 및 삽입
   // 스위치 생성 및 초기 설정을 담당하는 함수
   function createDarkModeSwitch() {
@@ -255,20 +253,20 @@ function initializeCustomNavigation() {
     </div>
             <div id="quickmenu">
                 <ul>
-                    <li><a href="/pages/live">스포츠중계</a></li>
-                    <li><a href="/checkIn">출석체크</a></li>
-                    <li><a href="/user/myPoints">포인트 전송</a></li>
-                    <li><a href="/user/ranking">랭킹</a></li>
+                    <li><a href="/pages/live"><img src="https://d2mftr5bxogqxd.cloudfront.net/2df208365bf04727a5186e44a5e83d3c.webp"></a></li>
+                    <li><a href="/checkIn"><img src="https://d2mftr5bxogqxd.cloudfront.net/d75a25ede5f34c3e962bf8dd7d3abe83.webp"></a></li>
+                    <li><a href="/user/myPoints"><img src="https://d2mftr5bxogqxd.cloudfront.net/1c38f5a0482745deba51b9003ae166fc.webp"></a></li>
+                    <li><a href="/user/ranking"><img src="https://d2mftr5bxogqxd.cloudfront.net/7840dfe9c82d4106b64865727cc887ab.webp"></a></li>
                 </ul>
                 <ul>
-                    <li><a href="/user/myInfo">정보수정</a></li>
-                    <li><a href="/user/myPosts">나의 활동</a></li>
-                    <li><a href="/noteReceived">쪽지</a></li>
-                    <li><a href="/logout">로그아웃</a></li>
+                    <li><a href="/user/myInfo"><img src="https://d2mftr5bxogqxd.cloudfront.net/9c29706394d3482ca125babb52d88dbb.webp"></a></li>
+                    <li><a href="/user/myPosts"><img src="https://d2mftr5bxogqxd.cloudfront.net/96a31cff958648c1a07b7a4c43923a98.webp"></a></li>
+                    <li><a href="/noteReceived"><img src="https://d2mftr5bxogqxd.cloudfront.net/3d5ed50ab0f445d6bfeb1a76d8645ec6.webp"></a></li>
+                    <li><a href="/logout"><img src="https://d2mftr5bxogqxd.cloudfront.net/e96bfa728db54bf4a65f1cf0ca24d173.webp"></a></li>
                 </ul>
             </div>`;
       
-      navWrap.insertBefore(newElement, navWrap.firstChild);
+      navWrap.insertBefore(newElement, navWrap.children[1]);
   } else {
       console.error("'navWrap' 요소를 찾을 수 없습니다.");
   }
@@ -285,7 +283,7 @@ function initializeCustomNavigation() {
 
     var parentDiv = document.querySelector('div[style*="flex-direction: column;"]');
     var exp = parentDiv ? parentDiv.children[1] : null;
-
+        var mypageElement = document.querySelector('.mypage');
   // 요소들이 존재하는지 확인
   if (badge && nick && level && points && acpoints && exp && infoco && ulc && pinfo && expbar) {
       // 요소 복제
@@ -310,36 +308,57 @@ function initializeCustomNavigation() {
       expbar.insertBefore(clonedexp, expbar.firstChild);
       pinfo.insertBefore(clonedpoints, pinfo.firstChild);
       pinfo.insertBefore(clonedacpoints, clonedpoints.nextSibling);
+        if (mypageElement) {
+            mypageElement.classList.add('nov');
+        }
   } else {
-      console.error("Some elements could not be found.");
+              var uinfoElement = document.querySelector('.uinfo');
+
+
+        if (uinfoElement) {
+            uinfoElement.classList.add('nov');
+        }
+
+        if (mypageElement) {
+            mypageElement.classList.add('yesv');
+        }
   }
 }
 
 // DOM이 완전히 로드된 후 실행
 document.addEventListener('DOMContentLoaded', (event) => {
-  initializeCustomNavigation();
+    // 기타 초기화 함수
+    initializeCustomNavigation();
     setupMobileNavigation();
+
     // 스위치 생성
     var darkModeSwitch = createDarkModeSwitch();
-    var darkModeSwitch = createDarkModeSwitch();
+    var darkModeSwitch2 = createDarkModeSwitch();
+    var darkModeSwitch3 = createDarkModeSwitch();
     var container = document.querySelector(".newlevel");
+    var insertPoint = document.querySelector('.section.userInfo > div > div:first-child > div:last-child > a');
+    var insertPoint2 = document.querySelector('.userContainer > .joinAndFindPassword > a[href="/join"]');
 
-    // 스위치 삽입 위치 찾기
-    var insertPoint = document.querySelector("a[href='/noteReceived']");
+if (insertPoint2) {
+    insertPoint2.parentNode.insertBefore(darkModeSwitch3, insertPoint2.nextSibling);
+}
+    // insertPoint가 존재하고, 해당 위치에 마지막 자식 뒤에 darkModeSwitch 삽입
     if (insertPoint) {
         insertPoint.parentNode.insertBefore(darkModeSwitch, insertPoint.nextSibling);
     }
+
+    // container가 존재하면, 해당 위치에 darkModeSwitch2 삽입
     if (container) {
-    // Append the dark mode switch as a child of the .newlevel container
-    container.appendChild(darkModeSwitch);
-}
+        container.appendChild(darkModeSwitch2);
+    }
 
-// Assuming you have a function to setup the switch's functionality
-setupDarkModeSwitch(darkModeSwitch);
-
-
-    // 스위치 설정
+    // 스위치 기능 설정
+    setupDarkModeSwitch(darkModeSwitch3);
     setupDarkModeSwitch(darkModeSwitch);
+    setupDarkModeSwitch(darkModeSwitch2);
+
+
+    // 기타 초기화 함수
     createScrollTopButton();
     handleScrollEvent();
     initializeChatAppResize();
