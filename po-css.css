@@ -20,10 +20,6 @@ border-radius: 10px;
 width: 50px;
 max-width: 50px;
 }
-
-#scrollTopBtn:hover {
-background-color: #555;
-}
 }
 /*다크모드토글 버튼*/
 .switch {
@@ -242,8 +238,8 @@ flex-direction: column; /* 항목들을 수직으로 정렬합니다 */
 width: calc(65% - 10px);
 margin-right: 10px; /* 오른쪽 마진을 추가하여 .pinfo와의 간격을 만듭니다 */
 border-left: none;
-padding-top: 10px;
-padding-left: 10px;
+padding-right: none;
+padding: 10px;
 }
 
 .info-container {
@@ -251,6 +247,9 @@ display: flex; /* Flexbox를 사용하여 항목을 수평으로 정렬합니다
 justify-content: space-between; /* 항목들을 컨테이너의 양쪽 끝에 정렬합니다 */
 align-items: center; /* 항목들을 컨테이너의 중앙에 정렬합니다 */
 margin-bottom: 10px; /* .expbar와의 간격을 위해 하단 마진을 추가합니다 */
+}
+.name-level-container{
+min-width: 139px;
 }
 .newnick{
 font-size: medium;
@@ -298,9 +297,7 @@ text-decoration: none; /* 기본 텍스트 데코레이션 제거 */
 color: black; /* 링크 텍스트 색상 설정 */
 }
 
-#quickmenu ul li a:hover {
-background-color: #f5f5f5; /* 마우스 오버 시 배경색 변경 */
-}
+
 .newlevel {
 display: flex; /* establishes a flex context for children */
 align-items: center; /* centers children vertically */
@@ -308,5 +305,3 @@ justify-content: space-between; /* align children with space between them */
 }
 
 }
-
-/*모바일 끝*/

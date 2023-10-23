@@ -1,4 +1,5 @@
 
+
   // 다크모드 토글 스위치 로직 및 삽입
   // 스위치 생성 및 초기 설정을 담당하는 함수
   function createDarkModeSwitch() {
@@ -160,7 +161,7 @@ function getPanelForNavItem(item) {
       case "메뉴":
           return document.querySelector("header #nav");
       case "스포츠 중계":
-          window.location.href = "https://test.waffleboard.io/posts/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD";
+          window.location.href = "https://psdtv1.com/pages/live";
           return null; // 이 경우에는 특정 패널을 반환하지 않습니다.
       case "채팅창":
           return document.querySelector("#chatApp");
@@ -228,6 +229,7 @@ function initializeChatAppResize() {
       }
   });
 }
+
 function initializeCustomNavigation() {
   var navWrap = document.querySelector('.navWrap');
 
@@ -253,10 +255,10 @@ function initializeCustomNavigation() {
     </div>
             <div id="quickmenu">
                 <ul>
-                    <li><a href="">스포츠중계</a></li>
-                    <li><a href="">출석체크</a></li>
+                    <li><a href="/pages/live">스포츠중계</a></li>
+                    <li><a href="/checkIn">출석체크</a></li>
                     <li><a href="/user/myPoints">포인트 전송</a></li>
-                    <li><a href="">랭킹</a></li>
+                    <li><a href="/user/ranking">랭킹</a></li>
                 </ul>
                 <ul>
                     <li><a href="/user/myInfo">정보수정</a></li>
@@ -273,37 +275,72 @@ function initializeCustomNavigation() {
 
   var badge = document.querySelector('#gradeBadge');
   var nick = document.querySelector('#nickName > div:nth-child(2)');
-  var level = document.document.querySelector("body > main > aside > section.section.userInfo.slide-up > div > div:nth-child(1) > div:nth-child(1) > span");
-  var points = document.document.querySelector("body > main > aside > section.section.userInfo.slide-up > div > div:nth-child(1) > div.flex.flex-col > a:nth-child(1)");
-  var acpoints = document.document.querySelector("body > main > aside > section.section.userInfo.slide-up > div > div:nth-child(1) > div.flex.flex-col > a:nth-child(2)");
+  var level = document.querySelector(".userInfo > div > div:nth-child(1) > div:nth-child(1) > span");
+  var points = document.querySelector(".userInfo > div > div:nth-child(1) > div.flex.flex-col > a:nth-child(1)");
+  var acpoints = document.querySelector(".userInfo > div > div:nth-child(1) > div.flex.flex-col > a:nth-child(2)");
   var infoco = document.querySelector('.info-container');
   var pinfo = document.querySelector('.pinfo');
   var ulc = document.querySelector('.name-level-container');
-  var exp = document.document.querySelector("body > main > aside > section.section.userInfo.slide-up > div > div:nth-child(1) > div:nth-child(2) > div");
   var expbar = document.querySelector('.expbar');
 
-  if (nick && level && points && acpoints && infoco && ulc && pinfo && expbar && exp) {
-      var clonedbabge = badge.cloneNode(true);
+    var parentDiv = document.querySelector('div[style*="flex-direction: column;"]');
+    var exp = parentDiv ? parentDiv.children[1] : null;
+
+  // 요소들이 존재하는지 확인
+  if (badge && nick && level && points && acpoints && exp && infoco && ulc && pinfo && expbar) {
+      // 요소 복제
+      var clonedbadge = badge.cloneNode(true);
       var clonednick = nick.cloneNode(true);
       var clonedlevel = level.cloneNode(true);
       var clonedpoints = points.cloneNode(true);
       var clonedacpoints = acpoints.cloneNode(true);
-      var clonedacexp = exp.cloneNode(true);
+      var clonedexp = exp.cloneNode(true);
 
+      // 새로운 클래스 추가
       clonednick.classList.add("newnick");
       clonedlevel.classList.add("newlevel");
       clonedpoints.classList.add("newpoints");
       clonedacpoints.classList.add("newacpoints");
-      clonedacexp.classList.add("exp")
+      clonedexp.classList.add("exp")
 
-      infoco.insertBefore(clonedbabge, infoco.firstChild);
+      // 요소 삽입
+      infoco.insertBefore(clonedbadge, infoco.firstChild);
       ulc.insertBefore(clonednick, ulc.firstChild);
       ulc.insertBefore(clonedlevel, clonednick.nextSibling);
-      expbar.insertBefore(clonedacexp, expbar.firstChild);
+      expbar.insertBefore(clonedexp, expbar.firstChild);
       pinfo.insertBefore(clonedpoints, pinfo.firstChild);
       pinfo.insertBefore(clonedacpoints, clonedpoints.nextSibling);
   } else {
-      console.error("필요한 요소를 찾을 수 없습니다.");
+      console.error("Some elements could not be found.");
   }
 }
+
 // DOM이 완전히 로드된 후 실행
+document.addEventListener('DOMContentLoaded', (event) => {
+  initializeCustomNavigation();
+    setupMobileNavigation();
+    // 스위치 생성
+    var darkModeSwitch = createDarkModeSwitch();
+    var darkModeSwitch = createDarkModeSwitch();
+    var container = document.querySelector(".newlevel");
+
+    // 스위치 삽입 위치 찾기
+    var insertPoint = document.querySelector("a[href='/noteReceived']");
+    if (insertPoint) {
+        insertPoint.parentNode.insertBefore(darkModeSwitch, insertPoint.nextSibling);
+    }
+    if (container) {
+    // Append the dark mode switch as a child of the .newlevel container
+    container.appendChild(darkModeSwitch);
+}
+
+// Assuming you have a function to setup the switch's functionality
+setupDarkModeSwitch(darkModeSwitch);
+
+
+    // 스위치 설정
+    setupDarkModeSwitch(darkModeSwitch);
+    createScrollTopButton();
+    handleScrollEvent();
+    initializeChatAppResize();
+});
