@@ -307,35 +307,3 @@ function initializeCustomNavigation() {
   }
 }
 // DOM이 완전히 로드된 후 실행
-document.addEventListener('DOMContentLoaded', (event) => {
-  initializeCustomNavigation();
-    // 스위치 생성
-    var darkModeSwitch = createDarkModeSwitch();
-    var darkModeSwitch = createDarkModeSwitch();
-    var container = document.querySelector(".newlevel");
-
-    // 스위치 삽입 위치 찾기
-    var insertPoint = document.querySelector("body > main > aside > section.section.userInfo > div:nth-child(2) > div:nth-child(4)");
-    if (insertPoint) {
-        insertPoint.parentNode.insertBefore(darkModeSwitch, insertPoint.nextSibling);
-    }
-    var insertPoint = document.querySelector("body > main > aside > section.userContainer > div.joinAndFindPassword > a:nth-child(2)");
-    if (insertPoint) {
-        insertPoint.parentNode.insertBefore(darkModeSwitch, insertPoint.nextSibling);
-    }
-    if (container) {
-    // Append the dark mode switch as a child of the .newlevel container
-    container.appendChild(darkModeSwitch);
-}
-
-// Assuming you have a function to setup the switch's functionality
-setupDarkModeSwitch(darkModeSwitch);
-
-
-    // 스위치 설정
-    setupDarkModeSwitch(darkModeSwitch);
-    createScrollTopButton();
-    handleScrollEvent();
-    setupMobileNavigation();
-    initializeChatAppResize();
-});
