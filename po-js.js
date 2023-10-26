@@ -343,6 +343,7 @@ function initializeCustomNavigation() {
     var parentDiv = document.querySelector('div[style*="flex-direction: column;"]');
     var exp = parentDiv ? parentDiv.children[1] : null;
     var mypageElement = document.querySelector('.mypage');
+    var infoElment = document.querySelector("body > main > aside > section.section.userInfo.active > div:nth-child(2)");
   // 요소들이 존재하는지 확인
   if (badge && nick && level && points && acpoints && exp && infoco && ulc && pinfo && expbar) {
       // 요소 복제
@@ -393,15 +394,12 @@ function initializeCustomNavigation() {
     poinin.insertBefore(clonedpoints, poinin.firstChild);
     poinin.insertBefore(clonedacpoints, clonedpoints.nextSibling);}
 
-    if (mypageElement) {
+    if (infoElment) {
     mypageElement.classList.add('nov');
         } else {
         var uinfoElement = document.querySelector('.uinfo');
         if (uinfoElement) {
             uinfoElement.classList.add('nov');
-        }
-
-        if (mypageElement) {
             mypageElement.classList.add('yesv');
         }
         }

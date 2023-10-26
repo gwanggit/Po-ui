@@ -7,6 +7,10 @@
             }
         [data-theme='dark'] header nav > ul > li > ul > li {
         background-color: #fff!important;}
+        [data-theme='dark'] header nav > ul > li > ul > li > a{
+        color: #353535!important;}
+        [data-theme='dark'] header nav > ul > li > ul > li :hover {
+        background-color: #d0d0d0!important;}
         #scrollTopBtn {
         display: none;
         position: fixed;
